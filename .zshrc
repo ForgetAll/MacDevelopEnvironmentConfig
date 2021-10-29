@@ -127,11 +127,28 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# if have config in .bash_profile
+function proxy_on()
+{
+#  cat << EOF
+#  Usage: $0 [OPTIONS]
+#  --version=1.0.0     Specify the version
+#  --file=file         The specified file
+#  --home=homedir      The specified directory
+#EOF
+#  
+#  return
+  export all_proxy=socks5://127.0.0.1:1086
+  export no_proxy=code.jspp.com
+  echo "proxy open success!"
+}
+
+function proxy_off() {
+  unset all_proxy
+  echo "proxy off success!"
+}
+
 source ~/.bash_profile
-# depend on your ssr config
-alias zsh_proxy='export all_proxy=socks5://127.0.0.1:1086;export no_proxy=xxx'
-alias zsh_unproxy='unset all_proxy'
+# alias zsh_proxy='export all_proxy=socks5://127.0.0.1:1086;export no_proxy=code.jspp.com'
 alias git_proxy='git config --global http.proxy socks5://127.0.0.1:1086'
 alias git_proxys='git config --global https.proxy socks5://127.0.0.1:1086'
 alias git_unproxy='git config --global --unset https.proxy'
@@ -142,6 +159,12 @@ export GOPATH=
 export GOROOT=
 export PATH=$PATH:/$GOPATH/bin
 alias ctags="`brew --prefix`/bin/ctags"
+# alias java="`brew --prefix`/bin/java"
+alias vim=nvim
+alias vi=nvim
+alias v=nvim
+# alias java=$JAVA_HOME/bin/java
+# alias javac=$JAVA_HOME/bin/javac
 
 export LANG=en_US.UTF-8
 export LC_CTYPE="zh_CN.UTF-8"
@@ -158,3 +181,6 @@ export LC_MEASUREMENT="en_US.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 
 eval $(thefuck --alias)
+export txyIP=""
+export loginTxy='ssh ubuntu@${txyIP}'
+source <(kubectl completion zsh)

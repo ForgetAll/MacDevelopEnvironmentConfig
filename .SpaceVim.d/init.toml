@@ -7,15 +7,19 @@
 #=============================================================================
 
 # All SpaceVim option below [option] section
+# You can press :h SpaceVim-config to see all config
+# Or You can see ~/.SpaceVim/autoload/SpaceVim.vim to see source code config
 [options]
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
     # layer
-    colorscheme = "gruvbox"
+    relativenumber = 0
+    colorscheme = "jellybeans"
+    #colorscheme = "gruvbox"
     colorscheme_bg = "dark"
     # Disable guicolors in basic mode, many terminal do not support 24bit
     # true colors
-    enable_guicolors = false
+    enable_guicolors = true
     # Disable statusline separator, if you want to use other value, please
     # install nerd fonts
     statusline_separator = "nil"
@@ -26,7 +30,9 @@
     enable_statusline_mode = false
     statusline_unicode_symbols = false
     # Enable vim compatible mode, avoid changing origin vim key bindings
-    vimcompatible = true
+    # vimcompatible = true
+    bootstrap_before = "myspacevim#before"
+    bootstrap_after = "myspacevim#after"
 
 # Enable autocomplete layer
 [[layers]]
@@ -49,19 +55,39 @@ name = "lang#javascript"
 name = "lang#vue"
 
 [[layers]]
+name = "lang#c"
+
+[[layers]]
 name = "format"
 
 [[layers]]
 name = "colorscheme"
 
-[options]
-colorscheme = "gruvbox"
+[[layers]]
+name = "lang#java"
 
 [[layers]]
 name = "lsp"
 filetypes = [
   "go"
 ]
+#[layers.override_cmd]
+#java = [
+#"java",
+#"-Declipse.application=org.eclipse.jdt.ls.core.id1",
+#"-Dosgi.bundles.defaultStartLevel=4",
+#"-Declipse.product=org.eclipse.jdt.ls.core.product",
+#"-Dlog.protocol=true",
+#"-Dlog.level=NONE",
+#"-noverify",
+#"-Xmx1G",
+#"-jar",
+#"/home/tinyan/Documents/jdt-language-server-latest/plugins/org.eclipse.equinox.launcher_1.5.400.v20190515-0925.jar",
+#"-configuration",
+#"/home/tinyan/Documents/jdt-language-server-latest/config_linux",
+#"-data",
+#"/home/tinyan/.cache/javalsp"
+#]
 
 [[layers]]
 name = "checkers"
@@ -69,3 +95,6 @@ name = "checkers"
 [[layers]]
 name = "core#banner"
 
+[[layers]]
+name = "ui"
+  enable_indentline = true
