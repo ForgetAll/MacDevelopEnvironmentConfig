@@ -7,8 +7,8 @@ function! myspacevim#before() abort
   "autocmd InsertLeave,WinEnter * set cursorline
   "autocmd InsertEnter,WinLeave * set nocursorline
   "翻译快捷键
-  nnoremap <Leader>d :!testWhats <cword><CR>
-  vnoremap <Leader>d y:!testWhats <c-r>"<CR>
+  nnoremap <Leader>d :!whats <cword><CR>
+  vnoremap <Leader>d y:!whats <c-r>"<CR>
 endfunction
 
 function! myspacevim#after() abort
