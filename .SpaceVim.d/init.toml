@@ -49,6 +49,15 @@ default_height = 30
 name = "lang#go"
 
 [[layers]]
+name = "lang#toml"
+
+[[layers]]
+name = "lang#vim"
+
+[[layers]]
+name = "lang#xml"
+
+[[layers]]
 name = "lang#javascript"
 
 [[layers]]
@@ -64,7 +73,19 @@ name = "format"
 name = "colorscheme"
 
 [[layers]]
+name = "lang#html"
+
+[[layers]]
+name = "lang#groovy"
+
+[[layers]]
+name = "lang#markdown"
+
+[[layers]]
 name = "lang#java"
+# if local jdk version >= 16, need to change jar -jar flag
+java_formatter_jar = "~/.SpaceVim.d/java_formatter.jar"
+format_on_save = true
 
 [[layers]]
 name = "lsp"

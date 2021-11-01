@@ -9,6 +9,9 @@ function! myspacevim#before() abort
   "翻译快捷键
   nnoremap <Leader>d :!whats <cword><CR>
   vnoremap <Leader>d y:!whats <c-r>"<CR>
+  "插入模式将光标改成竖线
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endfunction
 
 function! myspacevim#after() abort

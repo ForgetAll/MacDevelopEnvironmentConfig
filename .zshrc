@@ -138,7 +138,6 @@ function proxy_on()
 #  
 #  return
   export all_proxy=socks5://127.0.0.1:1086
-  export no_proxy=code.jspp.com
   echo "proxy open success!"
 }
 
@@ -148,7 +147,6 @@ function proxy_off() {
 }
 
 source ~/.bash_profile
-# alias zsh_proxy='export all_proxy=socks5://127.0.0.1:1086;export no_proxy=code.jspp.com'
 alias git_proxy='git config --global http.proxy socks5://127.0.0.1:1086'
 alias git_proxys='git config --global https.proxy socks5://127.0.0.1:1086'
 alias git_unproxy='git config --global --unset https.proxy'
@@ -160,9 +158,23 @@ export GOROOT=
 export PATH=$PATH:/$GOPATH/bin
 alias ctags="`brew --prefix`/bin/ctags"
 # alias java="`brew --prefix`/bin/java"
-alias vim=nvim
-alias vi=nvim
-alias v=nvim
+# when write java and use java-complete2 needs python3 support
+# neovim does not have python3, should use normal vim to write
+alias v=av
+alias nv=av
+alias vim=av
+
+function av() {
+#  res=`curl --connect-timeout 2 https://v1.jinrishici.com/rensheng.txt`
+#  echo -e "\033[31m $res"
+  fortune -e tang300
+  sleep 0.7
+  if [[ $1 == *.java ]]
+  then /opt/homebrew/bin/vim $1
+  else nvim $1
+  fi
+}
+
 # alias java=$JAVA_HOME/bin/java
 # alias javac=$JAVA_HOME/bin/javac
 
@@ -181,6 +193,4 @@ export LC_MEASUREMENT="en_US.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 
 eval $(thefuck --alias)
-export txyIP=""
-export loginTxy='ssh ubuntu@${txyIP}'
 source <(kubectl completion zsh)
